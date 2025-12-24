@@ -7,7 +7,6 @@ define e = Character("Edwin")
 define o = Character("Olivia")
 define k = Character("Kelly")
 define s = Character("Sophie")
-define l = Character("Lily")
 define t = Character("Teacher")
 
 image Edwin = "Edwin.png"
@@ -26,12 +25,14 @@ image Kelly laugh = "kelly/laugh."
 image Kelly shocked = "kelly/shocked."
 
 image Sophie happy = "sophie/happy."
+image Sophie uncomfortable = "sophie/uncomfortable."
 image Sophie angry = "sophie/angry."
 image Sophie blush = "sophie/blush."
 image Sophie laugh = "sophie/laugh."
 image Sophie shocked = "sophie/shocked."
 
-image Teacher = "teacher."
+image chemTeacher = "chemteacher."
+image mathTeacher = "mathTeacher."
 
 default points = 0
 
@@ -75,10 +76,12 @@ label start:
         scene chemistry room with dissolve
         $ points = 0
         pause 1.0
-        show Teacher
+        show chemTeacher
 
         t "alright class lets do some retrieval practice... lets start by writing the chemical equation for combining hydrochloric acid with sodium hydroxide"
         
+        hide chemTeacher with fade
+
         show Edwin
 
         e "{i}oh crikey idk what to do uhmmm{i}"
@@ -107,12 +110,84 @@ label start:
             o "first start by writing down the reactants chemical formulas, and then you do this and blablablablabal"
 
             pause 0.5
-            e "wow tysm like wow ur so smart and cool"
+
+            menu:
+                "wow tysm like wow ur so smart and cool thx ggs":
+                    jump o first encounter1a
+                
+                "thanks ig":
+                    jump o first encounter1b
+
+                "do u think u could tutor me for chem":
+                    jump o first encounter1c
+
+            label o first encounter1a
+                scene chemistry room
+                $ points += 5
+                pause 1.0
+                show Olivia laugh with fade
+                show e
+
+                o "youre welcome heh! if u want i can help u out in future lessons"
+
+                show Olivia happy
+
+                o "dw im sure youll the hang of it eventually tho once u understand the basics"
+
+                e "tysm yes beo pls helpme out"
+
+                show chemTeacher with fade
+
+                t "times up folks and the right answer isssss blablablablabalab and to find it u do this this this"
+
+                e "ohhhhh thats how u get there"
+
+                show Olivia laugh
+
+                o "i just showed u that idiot- sorry"
+
+                e "heh oops its fine guys trust i got goldfish memory"
+
+                t "there goes the bell get tf out of my classroom u brats ahh"
+
+                show Olivia happy
+
+                e "uhm k bye"
+
+                o "bye"
+
+                jump o second encounter
+
+            label o first encounter1b
+                scene chemistry room
+                $ points -= 2
+                pause 1.0
+                show Olivia uncomfortable with fade
+                show e
+
+                o "ur welcome."
+
+                e "{i}shucks now i sound like a jerk blabalbalbal{i}"
+
+                show chemTeacher with fade
+
+                t "ok folks heres the answer- oh there goes the bell and boom shakalaka get tf out of my class"
+
+                e "hey wait-"
+
+                hide Olivia uncomfortable with fade
+
+                e "shucks"
+
+                jump o second encounter
+
+            label o first encounter1c
 
         label o first encounter2
             scene chemistry room
+            $ points += 2
             pause 1.0
-            show Teacher with fade 
+            show chemTeacher with fade 
 
             t "alright folks times up. lets seee here"
 
@@ -145,6 +220,84 @@ label start:
             show Olivia happy 
 
             o "ur welcome! if u need more help u can ask next time, i dont bite"
+
+            t "alright folks theres the bell leave my classroom get tf out"
+
+            hide chemTeacher with fade
+
+            o "welp ill see u around ig"
+
+            e "yeah"
+
+            jump o second encounter
+        
+        label o secound encounter
+            if points >= 
+            
+
+
+
+    label second route
+        pause 1.0
+        scene fitness room with dissolve
+        $ points = 0
+        show e
+
+        e "{i}shucks that was my last rep ykyk"
+
+    label third route
+        pause 1.0
+        scene math room with dissolve
+        $ points = 0
+        show mathTeacher with fade
+
+        t "blablala math stuff"
+
+        e "{i}ts is so easy guys like allaalal{i}"
+
+        t "alright guys theres the bell yall can go"
+
+        e "{i}betbetbetebt maybe if i walk quickly i can actually find a seat in the caf{i}"
+
+        t "oh shucks just a moment edwin i need to speak with u"
+
+        e "{i}shucks am i in trouble like what is this{i}"
+
+        e "ofc teach give me a second"
+
+        t "alright son do u think u can carry some supplies i bought to the art room? i made a deal with ms pigeon and ended up having to buy her class extra things.... a lot of extra things"
+
+        e "yikes is that actually allowed"
+
+        t "probably not but alas what can u do. so are u up to the task? it is quite heavy"
+
+        e "u bet i can do this lalalalalalaa"
+
+        t "ty bro i appreciate it. dyk where it is"
+
+        pause 0.5
+
+        e "uhhhhhhhhhh"
+
+        t "haha its ok, its second floor room 204"
+
+        e "betbebtbetbe i will get it done teach"
+
+        t "tyty just tell ms pigeon that i sent u"
+
+        e "perf have a good day"
+
+        scene lifting box1 with fade
+
+        e "{i}shucks what in the world did teach have to buy this is crazy{i}"
+
+        scene lifting box2 with fade
+
+        e "{i}almost there... 1,2,3 lalalallaalalal just another three flights of stairs{i}"
+        
+
+
+
 
                 
 
